@@ -79,11 +79,13 @@ int main()
   freopen("pprime.out","w",stdout);     
   makeprime();
   scanf("%d%d", &a, &b);
+  int xa = a;
   while (a>0) {
     aa[na] = a % 10;
     a /= 10;
     ++na;
   }
+  a = xa;
   /*
   while (b>0) {
     bb[nb] = b % 10;
@@ -91,10 +93,10 @@ int main()
     ++nb;
   }
   */
-  odda = (na - 1) % 2;
-  for (int i = 0; i < (na + 1) / 2; ++i)
-    th[i] = aa[na - 1 - i];
+  odda = na % 2;
   nth = (na + 1) / 2;
+  for (int i = 0; i < nth; ++i)
+    th[i] = aa[na - nth + i];
   while (get() < a) add();
   a = get();
   while (a <= b) {
